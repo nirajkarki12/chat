@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-
     <div class="container logo-container">
         <div class="row">
             <div class="col-md-12">
@@ -27,10 +27,7 @@
                             </h1>
                         </div>
 
-
-
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
                             <ul class="nav navbar-nav navbar-right">
                                 <li style="padding-right: 50px;">
                                     <h2 class="reg-div">
@@ -38,10 +35,7 @@
                                             Login
                                         </a>
                                     </h2>
-
                                 </li>
-
-
                                 <li class="reg_link2">
                                     <h2 class="reg-div">
                                         <a href="/signup">
@@ -54,16 +48,19 @@
 
                     </nav>
                 </div>
-
         </div>
     </div>
 
 <div id="main">
     <div class="main">
-        <form action="/" method="post">
-
+        <form action="/signup" method="post">
+            <div class="inset">
+                <a href="#" class="btn-social btn-facebook btn-lg">
+                    <i class="fa fa-facebook"></i> Sign up with facebook
+                </a>
+            </div>
             <h1>
-                Login
+                Register
             </h1>
 
             <% if(hasErrors){ %>
@@ -78,6 +75,11 @@
 
             <div class="inset">
                 <p>
+                  <label for="username">USERNAME</label>
+                  <input type="text" name="username" class="" placeholder="">
+                </p>
+
+                <p>
                     <label for="email">EMAIL ADDRESS</label>
                     <input type="text" name="email" placeholder="" />
                 </p>
@@ -89,7 +91,7 @@
             </div>
 
             <p class="p-container">
-                <span><a href="/signup">Not yet Registered?</a></span>
+                <span><a href="/">Login</a></span>
                 <input type="submit" class="login-log" style=" background: #3bb5ec; border: #3bb5ec;" value="Register">
             </p>
         </form>
