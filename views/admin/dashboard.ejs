@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Dashboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<form action="/dashboard" method="post">
+			<input type="text" name="club" placeholder="Club Name">
+			<input type="text" name="country" placeholder="Country Name">
+			<button class="btn btn-lg upload-btn" type="button">Upload File</button>
+			<input type="file" name="upload" id="upload-input" style="display:none">
+		</form>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/js/upload.js"></script>
+</body>
+</html>
