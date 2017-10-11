@@ -222,19 +222,21 @@ footer .container .text-muted {
   padding-left: 15px;
 }
 
-.btn-facebook{
+.btn-facebook, .btn-gplus{
     background: #4aa1f3;
     border-radius: 0;
     color: #fff;
     display: inline-block;
+    margin-bottom: 5px;
+    text-align: center;
 }
-.btn-facebook:link, .btn-facebook:visited{
+.btn-facebook:link, .btn-facebook:visited, .btn-gplus:link, .btn-gplus:visited{
     color: #FFF;
     text-decoration: none;
     background: #4aa1f3;
 }
-.btn-facebook:active, .btn-facebook:hover{
-    background: #FFF;
-    color: #4aa1f3;
+.btn-facebook:active, .btn-facebook:hover, .btn-gplus:active, .btn-gplus:hover{
+    background: #4aa1f3;
+    color: #FFF;
 }
 
