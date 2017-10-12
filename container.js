@@ -4,7 +4,9 @@ const path = require('path');
 const container = dependable.container();
 const simpleDependencies = [
 	['_', 'lodash'],
-	['passport', 'passport']
+	['passport', 'passport'],
+	['formidable', 'formidable'],
+	['Club', './models/clubs']
 ];
 
 simpleDependencies.forEach(function(val){

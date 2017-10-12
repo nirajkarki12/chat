@@ -16,7 +16,6 @@ module.exports = function(_, passport, User){
 
 			router.post('/signup', User.SignUpValidation, this.postSignUp);
 
-			router.get('/home', this.homePage);
 		},
 		indexPage: function(req, res){
 			const errors = req.flash('error');
@@ -51,10 +50,7 @@ module.exports = function(_, passport, User){
 			successRedirect: '/home',
 			failureRedirect: '/signup',
 			failureFlash: true
-		}),
-		homePage: function(req, res){
-			return res.render('home');
-		}
+		})
 	}
 
 }

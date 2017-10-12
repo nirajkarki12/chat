@@ -12,7 +12,7 @@ const passport = require('passport');
 
 const container = require('./container');
 
-container.resolve(function(users, _, admin){
+container.resolve(function(users, _, admin, home){
 
 	mongoose.Promise = global.Promise;
 	mongoose.connect('mongodb://localhost/chatapp', {useMongoClient: true}, function(err, done){
@@ -39,6 +39,7 @@ container.resolve(function(users, _, admin){
 
 		users.SetRouting(router);
 		admin.SetRouting(router);
+		home.SetRouting(router);
 
 		app.use(router);
 	}
