@@ -12,16 +12,21 @@ module.exports = function(async, Club, _){
 					Club.find({}, (err, result) => {
 						callback(err, result);
 					})
+				},
+				function(callback){
+					Club.aggregate({
+						$group: {
+							_id: "$country"
+						}
+					}, (err, newResult) => {
+						callback(err, newResult);
+					})
 				}
 			], (err, results) => {
 				const res1 = results[0];
+				const country = _.sortBy(results[1], '_id');
 
-				const dataChunk = [];
-				const chunkSize = 3;
-				for(let i = 0; i < res1.length; i += chunkSize){
-					dataChunk.push(res1.slice(i, i + chunkSize));
-				}
-				res.render('home', {title: 'Chat App | Home', data:dataChunk});
+				res.render('home', {title: 'Chat App | Home', data:res1, country: country});
 				
 			})
 		}
