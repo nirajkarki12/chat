@@ -26,7 +26,7 @@ module.exports = function(async, Club, _){
 				const res1 = results[0];
 				const country = _.sortBy(results[1], '_id');
 
-				res.render('home', {title: 'Chat App | Home', data:res1, country: country});
+				res.render('home', {title: 'Chat App | Home', user: req.user, data:res1, country: country});
 				
 			})
 		}

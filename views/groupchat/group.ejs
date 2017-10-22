@@ -101,12 +101,28 @@
                             </div>
 
                             <div class="chat_area">
-                            
+                                <ul id="messages" class="list-unstyled">
+                                </ul>
+                                <script type="text/template" id="message-template">
+                                    <li class="left">
+                                        <span class="chat-img1 pull-left">
+                                            <img src="http://placehold.it/300x300" class="img-circle" alt="">
+                                        </span>
+                                        <div class="chat-body1">
+                                            <span class="chat-name">
+                                                {{ sender }}
+                                            </span>
+                                            <br>
+                                            {{ text }}
+                                        </div>
+                                    </li>
+                                </script>
                             </div>
 
                             <div class="message_write">
                               <form id="message-form" method="post">
-
+                                <input type="hidden" id="groupName" value="<%= groupName %>">
+                                <input type="hidden" id="sender" name="sender" value="<%= user.username %>">
                                   <textarea class="form-control" name="message" id="msg" placeholder="Type a message"></textarea>
                                   <div class="clearfix"></div>
                                   <div class="chat_bottom">
@@ -120,8 +136,6 @@
                     </div>
 
                     <div class="col-sm-3 col-md-3 mob-50 mob-clearfix">
-
-
                         <div class="new_message_head">
                             <div class="pull-left">
                                 <button class="club_fans">
@@ -130,8 +144,6 @@
                                 </button>
                             </div>
                         </div>
-
-
 
                         <div class="gr-rightsidebar">
 
@@ -178,10 +190,12 @@
 
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>  
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="/js/group/groupchat.js"></script>
+<script type="text/javascript" src="/js/group/sendrequest.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
 </body>
 
 </html>
