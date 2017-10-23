@@ -22,14 +22,14 @@ $(document).ready(function(){
 		var ol = $('<ol></ol>');
 
 		for(var i = 0; i < users.length; i++){
-			ol.append('<p><a id="val" data-toggle="modal" data-target="#myModal">' + users[i] + '</a></p>');
+			ol.append('<p><a class="val" data-toggle="modal" data-target="#myModal">' + users[i] + '</a></p>');
 		}
 
-		$(document).on('click', '#val', function(){
+		$(document).on('click', '.val', function(){
 			$('#name').text('@' + $(this).text());
-			$('#receiverName').val($(this).text());
-			$('#sender-name').val(sender);
-			$('#nameLink').attr("href", "/profile/" + $(this).text());
+			$('.receiverName').val($(this).text());
+			$('.sender-name').val(sender);
+			$('.nameLink').attr("href", "/profile/" + $(this).text());
 		});
 
 		$('#numValue').text('(' + users.length + ')');

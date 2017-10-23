@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/group.css">
 </head>
 <body>
 <%- include partials/navbar.ejs %>
@@ -58,23 +59,27 @@
                 <div>
                     <div class="category-list">
                         <div class="row">
-                            <% _.forEach(data, function(val){ %>
-                                <form action="#" method="post" id="add-fav">
+                            <% _.forEach(chunks, function(val2){ %>
+                                <form action="/home" method="post" class="favorite">
                                     <div class="item col-md-4">
-                                        <a href="/group/<%= val.name %>" style="text-decoration:none">
+                                        <a href="/group/<%= val2.name %>" style="text-decoration:none">
                                             <div class="thumbnail">
-                                               <img src="/uploads/<%= val.image %>" alt="">
+                                               <img src="/uploads/<%= val2.image %>" alt="">
                                                 <div class="caption">
-                                                    <h4><%= val.name %></h4>
+                                                    <h4>
+                                                        <%= val2.name %> (<%= val2.fans.length %>)
+                                                    </h4>
                                                     
                                                     <div class="row">
                                                         <div class="col-xs-12 col-md-6">
                                                             <p>
-                                                                <%= val.country %>
+                                                                <%= val2.country %>
                                                             </p>
                                                         </div>
                                                         
                                                         <div class="col-xs-12 col-md-6">
+                                                            <input type="hidden" id="id" value="<%= val2._id %>">
+                                                             <input type="hidden" name="clubName" id="club_Name" value="<%= val2.name %>">
                                                             <button class="btn add-fav">
                                                                 Add To Favorite
                                                             </button>
@@ -94,7 +99,11 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>  
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/js/group/sendrequest.js"></script>
+<script type="text/javascript" src="/js/group/home.js"></script>
+<script type="text/javascript" src="/js/group/global.js"></script>
 </body>
 </html>

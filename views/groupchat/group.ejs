@@ -17,8 +17,6 @@
 <%- include ../partials/navbar.ejs %>
 
     <div class="col-md-12">
-        
-
         <div class="col-md-12">
             <div class="chat_container">
                 <div class="row">
@@ -72,7 +70,13 @@
                                                         Online Friends <span id="numOfFriends"></span>
                                                     </p>
                                                     <hr style="margin-top:10px" />
-                                                    
+                                                    <% if(data.friendsList.length > 0) { %>
+
+                                                        <% _.forEach(data.friendsList, function(value){ %>
+                                                            <div class="friend">@<%= value.friendName %></div>
+                                                        <% }) %>
+                                                    <% } %>
+
                                                     <div class="onlineFriends"></div>
 
                                                 </div>
@@ -85,9 +89,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    
                     <div class="col-sm-5 col-md-6 message_section">
                         <div class="row">
                             <div class="new_message_head">
@@ -156,10 +157,10 @@
                                     <h3 class="modal-title" id="name"></h3>
                                   </div>
                                   <div class="modal-body">
-                                    <form action="" method="get" id="add_friend">
-                                        <input type="hidden" name="receiverName" id="receiverName" value="">
-                                        <input type="hidden" name="sender-name" id="sender-name" value="">
-                                        <button type="submit" id="friend-add" class="btn add"><i class="fa fa-user"></i> Add Friend</button>
+                                    <form action="" method="get" class="add_friend">
+                                        <input type="hidden" name="receiverName" class="receiverName" value="">
+                                        <input type="hidden" name="sender-name" class="sender-name" value="<%= user.username %>">
+                                        <button type="submit" id="friend-add" class="btn add"><i class="fa fa-user friend-add"></i> Add Friend</button>
                                         
                                         <a id="nameLink" class="btn ">View Profile</a>
 
@@ -195,6 +196,7 @@
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="/js/group/groupchat.js"></script>
 <script type="text/javascript" src="/js/group/sendrequest.js"></script>
+<script type="text/javascript" src="/js/group/global.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
 </body>
 

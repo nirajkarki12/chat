@@ -339,10 +339,14 @@ member_list li:hover {
     padding-top: 15px;
 }
 
-#val{
+.val{
     cursor: pointer;
     text-decoration: none;
     color: #4aa1f3;
+}
+
+.val:hover{
+    text-decoration: none;
 }
 
 .nav-label-icon {

@@ -11,7 +11,6 @@ module.exports = function(io){
                from: friend.sender,
                to: friend.receiver
             }); 
-            
             callback();
         });
     });
