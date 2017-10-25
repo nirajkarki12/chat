@@ -16,7 +16,7 @@ const {Global} = require('./helpers/Global');
 
 const container = require('./container');
 
-container.resolve(function(users, _, admin, home, group){
+container.resolve(function(users, _, admin, home, group, privatechat){
 
 	mongoose.Promise = global.Promise;
 	mongoose.connect('mongodb://localhost/chatapp', {useMongoClient: true}, function(err, done){
@@ -43,6 +43,8 @@ container.resolve(function(users, _, admin, home, group){
 		require('./socket/groupchat')(io, Users);
 		require('./socket/friend')(io);
 		require('./socket/globalroom')(io, Global, _);
+		require('./socket/privatemessage')(io);
+
 		//setup Router
 		const router = require('express-promise-router')();
 
@@ -50,6 +52,7 @@ container.resolve(function(users, _, admin, home, group){
 		admin.SetRouting(router);
 		home.SetRouting(router);
 		group.SetRouting(router);
+		privatechat.SetRouting(router);
 
 		app.use(router);
 	}
